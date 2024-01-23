@@ -12,16 +12,14 @@ public class Player : MonoBehaviour
     private Vector2 screenbound;
     private float ObjectW;
     private float ObjectH;
-    int score;
-    public Text scoretext;
+    
     // Start is called before the first frame update
     void Start()
     {
         screenbound = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
         ObjectW = transform.GetComponent<MeshRenderer>().bounds.extents.x; 
         ObjectH = transform.GetComponent<MeshRenderer>().bounds.extents.y;
-        score = 0;
-        scoretext.text = "Score : " + score.ToString();
+       
     }
 
     // Update is called once per frame
@@ -60,18 +58,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Obstacle")
-        {
-
-            score += 1;
-            scoretext.text = "Score : " + score.ToString();
-           
-
-
-        }
-    }
+    
 
 
 
